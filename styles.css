@@ -8,6 +8,7 @@
 
 :root {
     --bg-blue: linear-gradient(50deg, #00458f, #004d9f, #00458f);
+    --bg-body:#f1f1f1;
     --color-primary: aqua;
     --color-secondary: #00458f;
     --color-maroon:#cc2500;
@@ -16,6 +17,54 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     padding-inline: 9em;
+}
+
+.navbar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background: #f1f1f1;
+    padding: 1em;
+    margin-top: 1em;
+    padding-inline: 1.5em;
+    border-radius: 1em;
+}
+
+/* BUTTON PICTURE THEME */
+.toggle-btn{
+    outline: 2px solid var(--color-secondary);
+    color: var(--color-secondary);
+    padding: 0;
+    padding-inline: 0.2em;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.2s;
+    font-size: 1.7em;
+    /* outline: 2px solid rgb(225, 225, 225); */
+}
+/* .toggle-btn:hover{
+    background: rgb(0, 206, 206);
+} */
+.toggle-btn:active{
+    scale: 0.9;
+}
+.toggle-btn section{
+    display: flex;
+    flex-direction: row;
+    gap: 0.5em;
+    text-transform: capitalize;
+    font-weight: 600;
+}
+/* Title-Nav */
+.Title-Nav{
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 1.4em;
+    color: var(--color-secondary);
+    margin-top: -0.1em;
+}
+.Title-Nav i{
+    font-size: 1.2em;
 }
 
 main {
@@ -29,7 +78,7 @@ header {
     padding: 1em;
     padding-inline: 2em;
     border-radius: 0.5em;
-    margin-top: 9em;
+    margin-top: 7em;
     width: 30.5vw;
     height: 10vh;
     scale: 1.4;
@@ -102,50 +151,13 @@ header section article.active::before {
     }
 }
 
-/* BUTTON PICTURE THEME */
-.toggle-btn{
-    background: rgb(0, 234, 234);
-    color: #fff;
-    padding: 1em;
-    position: absolute;
-    top: 2%;
-    left: 85%;
-    padding-inline: 1.5em;
-    border-radius: 0.4em;
-    cursor: pointer;
-    transition: 0.2s;
-    /* outline: 2px solid rgb(225, 225, 225); */
-}
-.toggle-btn:hover{
-    background: rgb(0, 206, 206);
-}
-.toggle-btn:active{
-    scale: 0.9;
-}
-.toggle-btn section{
-    display: flex;
-    flex-direction: row;
-    gap: 0.5em;
-    text-transform: capitalize;
-    font-weight: 600;
-}
-/* Title-Nav */
-.Title-Nav{
-    position: absolute;
-    text-transform: uppercase;
-    font-weight: 700;
-    font-size: 1.5em;
-    color: var(--color-secondary);
-    margin-top: 0.8em;
-    margin-left: -1em;
-}
 /* ASIDE */
 /* BG COLOR */
 aside{
     width: max-content;
     padding: 1em;
     float: right;
-    display: block;
+    display: none;
 }
 aside div:nth-child(2){
     display: flex;
