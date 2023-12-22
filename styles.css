@@ -1,0 +1,202 @@
+*,
+::after,
+::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --bg-blue: linear-gradient(50deg, #00458f, #004d9f, #00458f);
+    --color-primary: aqua;
+    --color-secondary: #00458f;
+    --color-maroon:#cc2500;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding-inline: 9em;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+}
+
+header {
+    background: var(--bg-blue);
+    color: #fff;
+    padding: 1em;
+    padding-inline: 2em;
+    border-radius: 0.5em;
+    margin-top: 9em;
+    width: 30.5vw;
+    height: 10vh;
+    scale: 1.4;
+}
+
+header section {
+    display: flex;
+    flex-direction: row;
+    gap: 3em;
+}
+
+/* BG ARTICLE */
+.bg-active {
+    background: #000;
+}
+
+header section article {
+    cursor: pointer;
+    width: min-content;
+    padding-inline: 0.5em;
+    padding-top: 0.3em;
+    padding-bottom: 0.4em;
+    height: min-content;
+    border-radius: 50%;
+    /* border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%; */
+    text-align: center;
+    transition: 0.2s;
+    background: transparent;
+    scale: 1.1;
+}
+
+header section article:hover {
+    color: var(--color-primary);
+}
+
+header section article.active {
+    background: white;
+    color: var(--color-secondary);
+    scale: 1.1;
+    margin-top: -0.5em;
+    z-index: 999;
+    outline: 1px solid var(--color-secondary);
+}
+
+header section article.active::before {
+    content: "";
+    position: absolute;
+    background-color: #fff;
+    width: 3.2vw;
+    height: 7vh;
+    /* border-top: 2px solid var(--color-secondary);
+    border-left: 1px solid var(--color-secondary);
+    border-right: 1px solid var(--color-secondary);
+    border-bottom: 1px solid var(--color-secondary); */
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+    margin-left: -13.9px;
+    z-index: -99999;
+    animation: animate 0.2s normal forwards;
+}
+
+@keyframes animate {
+    0% {
+        margin-top: -2.5em;
+    }
+
+    100% {
+    margin-top: -0.8em;
+    }
+}
+
+/* BUTTON PICTURE THEME */
+.toggle-btn{
+    background: rgb(0, 234, 234);
+    color: #fff;
+    padding: 1em;
+    position: absolute;
+    top: 2%;
+    left: 85%;
+    padding-inline: 1.5em;
+    border-radius: 0.4em;
+    cursor: pointer;
+    transition: 0.2s;
+    /* outline: 2px solid rgb(225, 225, 225); */
+}
+.toggle-btn:hover{
+    background: rgb(0, 206, 206);
+}
+.toggle-btn:active{
+    scale: 0.9;
+}
+.toggle-btn section{
+    display: flex;
+    flex-direction: row;
+    gap: 0.5em;
+    text-transform: capitalize;
+    font-weight: 600;
+}
+/* Title-Nav */
+.Title-Nav{
+    position: absolute;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 1.5em;
+    color: var(--color-secondary);
+    margin-top: 0.8em;
+    margin-left: -1em;
+}
+/* ASIDE */
+/* BG COLOR */
+aside{
+    width: max-content;
+    padding: 1em;
+    float: right;
+    display: block;
+}
+aside div:nth-child(2){
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+}
+aside div:nth-child(2) section:nth-child(2){
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.3em;
+}
+aside div:nth-child(2) section:nth-child(2) article{
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+}
+aside div:nth-child(2) section:nth-child(2) article span i{
+     font-size: 2em;
+     background: #fff;
+     padding:0.3em;
+     border-radius: 0.1em;
+     outline: 1px solid rgb(217, 217, 217);
+     cursor: pointer;
+}
+aside div:nth-child(2) section:nth-child(2)  article:nth-child(1) span:nth-child(1) i{
+    color: blue;
+}
+aside div:nth-child(2) section:nth-child(2) article:nth-child(1) span:nth-child(2) i{
+    color: aqua;
+}
+aside div:nth-child(2) section:nth-child(2)  article:nth-child(2) span:nth-child(1) i{
+    color: #cc2500;
+}
+aside div:nth-child(2) section:nth-child(2) article:nth-child(2) span:nth-child(2) i{
+    color: yellow;
+}
+
+aside div:nth-child(2) section:nth-child(2) article:nth-child(1) span:nth-child(1) i:hover{
+    background: rgb(243, 243, 243);
+    outline: 2px solid blue;
+}
+aside div:nth-child(2) section:nth-child(2) article:nth-child(1) span:nth-child(2) i:hover{
+    background: rgb(243, 243, 243);
+    outline: 2px solid aqua;
+}
+aside div:nth-child(2) section:nth-child(2)  article:nth-child(2) span:nth-child(1) i:hover{
+    background: rgb(243, 243, 243);
+    outline: 2px solid #cc2500;
+}
+aside div:nth-child(2) section:nth-child(2) article:nth-child(2) span:nth-child(2) i:hover{
+    background: rgb(243, 243, 243);
+    outline: 2px solid yellow;
+}
