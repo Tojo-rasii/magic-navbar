@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media</title>
+    <link rel="stylesheet" href="../component/socialMedia.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.min.css">
+</head>
+
+<body>
+    <main>
+        <section id="iconShare">
+            <article>
+                <i class="bi-share"></i>
+            </article>
+            <article>
+                <i class="bi-x"></i>
+            </article>
+        </section>
+        <article>
+            <div class="content-center">
+
+                <ul>
+                    <li><i class="bi-facebook fa-2x"></i></li>
+                    <li><i class="bi-twitter fa-2x"></i></li>
+                    <li><i class="bi-linkedin fa-2x"></i></li>
+                    <li><i class="bi-instagram fa-2x"></i></li>
+                </ul>
+
+            </div>
+        </article>
+    </main>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const iconShare = document.getElementById("iconShare");
+            const iconShareArticle = document.querySelector('main section:nth-child(1) article:nth-child(1)');
+            const iconShareClose = document.querySelector('main section:nth-child(1) article:nth-child(2)')
+            const content = document.querySelector(".content-center");
+
+
+            iconShareArticle.addEventListener('click', clickShare);
+
+
+            function clickShare() {
+                iconShareArticle.classList.add("shareRotate");
+                content.style.display = "block";
+                iconShareClose.style.display = "block";
+                iconShareArticle.style.display = "none";
+            }
+
+            iconShareClose.addEventListener('click', clickClose);
+
+
+            function clickClose() {
+                iconShareArticle.classList.remove("shareRotate");
+                content.style.display = "none";
+                iconShareClose.style.display = "none";
+                iconShareArticle.style.display = "block";
+            }
+        })
+    </script>
+</body>
+
+</html>

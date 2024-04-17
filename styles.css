@@ -7,64 +7,128 @@
 }
 
 :root {
-    --bg-blue: linear-gradient(50deg, #00458f, #004d9f, #00458f);
-    --bg-body:#f1f1f1;
+    --bg-blue: linear-gradient(50deg, #0dcfe1, #10ccdd, #0ec6d6);
+    --bg-body: #ecf3f3;
     --color-primary: aqua;
-    --color-secondary: #00458f;
-    --color-maroon:#cc2500;
+    --color-secondary: #00ddf1;
+    --color-maroon: #cc2500;
 }
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     padding-inline: 9em;
+    background: var(--bg-body);
 }
 
-.navbar{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    background: #f1f1f1;
-    padding: 1em;
-    margin-top: 1em;
-    padding-inline: 1.5em;
-    border-radius: 1em;
+.dark-mode {
+    background: #141414;
 }
 
-/* BUTTON PICTURE THEME */
-.toggle-btn{
-    outline: 2px solid var(--color-secondary);
+.dark-mode .Title-Nav {
+    background: #181818;
+    outline: 2px solid #232323;
     color: var(--color-secondary);
-    padding: 0;
-    padding-inline: 0.2em;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: 0.2s;
-    font-size: 1.7em;
-    /* outline: 2px solid rgb(225, 225, 225); */
 }
-/* .toggle-btn:hover{
-    background: rgb(0, 206, 206);
-} */
-.toggle-btn:active{
-    scale: 0.9;
+
+.dark-mode .bi-sun {
+    background: #181818 !important;
+    outline: 2px solid #232323 !important;
+    color: var(--color-secondary) !important;
 }
-.toggle-btn section{
+
+.dark-mode header {
+    outline: 5px solid #181818 !important;
+}
+
+.dark-mode header section article.active {
+    color: aqua !important;
+    outline: 1px solid #fff !important;
+}
+
+.dark-mode header section article.active::before {
+    background: #181818 !important;
+}
+
+
+.navbar {
+    margin-top: 3em;
+}
+
+.navbar picture {
     display: flex;
-    flex-direction: row;
-    gap: 0.5em;
-    text-transform: capitalize;
-    font-weight: 600;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2em;
 }
+
 /* Title-Nav */
-.Title-Nav{
+@keyframes borderAnimation {
+    0% {
+        outline-offset: 5px;
+    }
+
+    50% {
+        outline-offset: 10px;
+        outline-color: var(--color-secondary);
+    }
+
+    100% {
+        outline-offset: 5px;
+    }
+}
+
+.Title-Nav {
     text-transform: uppercase;
     font-weight: 700;
-    font-size: 1.4em;
+    font-size: 1.5em;
+    background: #fff;
     color: var(--color-secondary);
-    margin-top: -0.1em;
+    margin-top: 0.5em;
+    padding: 1em;
+    padding-inline: 2em;
+    border-radius: 2em;
+    outline: 2px solid rgb(228, 228, 228);
+    /* Ajout de l'animation de bordure */
+    animation: borderAnimation 2s ease-in-out infinite alternate;
 }
-.Title-Nav i{
-    font-size: 1.2em;
+
+
+.bi-moon-stars,
+.bi-sun {
+    outline: 3px solid var(--bg-body);
+    z-index: 9999;
+    font-size: 2em;
+    color: #000;
+    background: #fff;
+    padding: 0.5em;
+    padding-inline: 0.7em;
+    width: max-content;
+    border-radius: 50%;
+    outline: 1px solid rgb(227, 227, 227);
+
+    cursor: pointer;
+}
+
+.bi-moon-stars {
+    display: block;
+    color: var(--color-secondary);
+}
+
+.bi-moon-stars:active .bi-moon-stars {
+    display: none !important;
+}
+
+.bi-moon-stars:active .bi-sun {
+    display: block !important;
+}
+
+.bi-sun {
+    display: none;
+}
+
+.bi-sun:active .bi-moon-stars {
+    display: none;
 }
 
 main {
@@ -78,10 +142,12 @@ header {
     padding: 1em;
     padding-inline: 2em;
     border-radius: 0.5em;
-    margin-top: 7em;
+    margin-top: 10em;
     width: 30.5vw;
     height: 10vh;
     scale: 1.4;
+    outline: 5px solid #fff;
+    box-shadow: 0 0 8px rgb(43, 43, 43);
 }
 
 header section {
@@ -112,7 +178,7 @@ header section article {
 }
 
 header section article:hover {
-    color: var(--color-primary);
+    color: rgb(207, 207, 207);
 }
 
 header section article.active {
@@ -134,6 +200,7 @@ header section article.active::before {
     border-left: 1px solid var(--color-secondary);
     border-right: 1px solid var(--color-secondary);
     border-bottom: 1px solid var(--color-secondary); */
+    /* border-top-left-radius: 8%; */
     border-bottom-left-radius: 50%;
     border-bottom-right-radius: 50%;
     margin-left: -13.9px;
@@ -147,68 +214,160 @@ header section article.active::before {
     }
 
     100% {
-    margin-top: -0.8em;
+        margin-top: -0.8em;
     }
 }
 
+.dark-mode header section article.active span:last-child {
+    background: var(--color-secondary);
+    color: #fff;
+    outline: 1px solid var(--color-secondary);
+}
+
+.dark-mode header section article span:last-child::after {
+    border-top-color: var(--color-secondary);
+}
+
+/* * Ajoutez ces styles pour masquer les textes des articles */
+header section article span:last-child {
+    display: none;
+}
+
+/* Ajoutez ces styles pour afficher le texte des articles actifs */
+header section article.active span:last-child {
+    display: block;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    margin-top: -6.5em;
+    left: -50%;
+    color: var(--color-secondary);
+    font-weight: 500;
+    font-size: 0.8em;
+    background: var(--color-secondary);
+    color: #fff;
+    padding-inline: 1em !important;
+    padding: 0.2em;
+    border-radius: 0.2em;
+    outline: 1px solid var(--color-secondary);
+    text-align: center;
+    padding-bottom: 0.5em;
+}
+
+header section article span:last-child::after {
+    content: "";
+    position: absolute;
+    border: 0;
+    top: 100%;
+    left: 37%;
+    /* margin-top: 2.8em;
+    margin-left: -1.8em; */
+    border: 9px solid transparent;
+    border-top-color: var(--color-secondary);
+}
+
+#Message {
+    margin-left: -0.3em;
+}
+
+/* .ms-1 {
+    margin-left: 6.3em;
+} */
+
 /* ASIDE */
 /* BG COLOR */
-aside{
+aside {
     width: max-content;
     padding: 1em;
     float: right;
     display: none;
 }
-aside div:nth-child(2){
+
+aside div:nth-child(2) {
     display: flex;
     flex-direction: column;
     gap: 2em;
 }
-aside div:nth-child(2) section:nth-child(2){
+
+aside div:nth-child(2) section:nth-child(2) {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 2.3em;
 }
-aside div:nth-child(2) section:nth-child(2) article{
+
+aside div:nth-child(2) section:nth-child(2) article {
     display: flex;
     flex-direction: row;
     gap: 1em;
 }
-aside div:nth-child(2) section:nth-child(2) article span i{
-     font-size: 2em;
-     background: #fff;
-     padding:0.3em;
-     border-radius: 0.1em;
-     outline: 1px solid rgb(217, 217, 217);
-     cursor: pointer;
+
+aside div:nth-child(2) section:nth-child(2) article span i {
+    font-size: 2em;
+    background: #fff;
+    padding: 0.3em;
+    border-radius: 0.1em;
+    outline: 1px solid rgb(217, 217, 217);
+    cursor: pointer;
 }
-aside div:nth-child(2) section:nth-child(2)  article:nth-child(1) span:nth-child(1) i{
+
+aside div:nth-child(2) section:nth-child(2) article:nth-child(1) span:nth-child(1) i {
     color: blue;
 }
-aside div:nth-child(2) section:nth-child(2) article:nth-child(1) span:nth-child(2) i{
+
+aside div:nth-child(2) section:nth-child(2) article:nth-child(1) span:nth-child(2) i {
     color: aqua;
 }
-aside div:nth-child(2) section:nth-child(2)  article:nth-child(2) span:nth-child(1) i{
+
+aside div:nth-child(2) section:nth-child(2) article:nth-child(2) span:nth-child(1) i {
     color: #cc2500;
 }
-aside div:nth-child(2) section:nth-child(2) article:nth-child(2) span:nth-child(2) i{
+
+aside div:nth-child(2) section:nth-child(2) article:nth-child(2) span:nth-child(2) i {
     color: yellow;
 }
 
-aside div:nth-child(2) section:nth-child(2) article:nth-child(1) span:nth-child(1) i:hover{
+aside div:nth-child(2) section:nth-child(2) article:nth-child(1) span:nth-child(1) i:hover {
     background: rgb(243, 243, 243);
     outline: 2px solid blue;
 }
-aside div:nth-child(2) section:nth-child(2) article:nth-child(1) span:nth-child(2) i:hover{
+
+aside div:nth-child(2) section:nth-child(2) article:nth-child(1) span:nth-child(2) i:hover {
     background: rgb(243, 243, 243);
     outline: 2px solid aqua;
 }
-aside div:nth-child(2) section:nth-child(2)  article:nth-child(2) span:nth-child(1) i:hover{
+
+aside div:nth-child(2) section:nth-child(2) article:nth-child(2) span:nth-child(1) i:hover {
     background: rgb(243, 243, 243);
     outline: 2px solid #cc2500;
 }
-aside div:nth-child(2) section:nth-child(2) article:nth-child(2) span:nth-child(2) i:hover{
+
+aside div:nth-child(2) section:nth-child(2) article:nth-child(2) span:nth-child(2) i:hover {
     background: rgb(243, 243, 243);
     outline: 2px solid yellow;
+}
+
+/* Tooltip */
+article[data-tooltip] {
+    position: relative;
+}
+
+article[data-tooltip]::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+article[data-tooltip]:hover::after {
+    opacity: 1;
 }
